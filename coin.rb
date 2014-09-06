@@ -5,4 +5,24 @@
 #   2¢, 2¢
 
 
+def coin_combinations(amount, denominations)
+  combinations(amount, [], denominations)    
+end
+
+def combinations(amount, used, unused)
+  combinations_collection = [] 
+  unused.each do |coin|
+    combination = [].concat(used)
+    combination_total = used.inject(0, &:+)
+    if (combination_total + coin) < amount
+      combination << coin
+      combinations_collection.concat(combinations(amount, combination, unused))
+    elsif (combination_total + coin) == amount
+      combination << coin
+      combinations_collection << combination.sort 
+      combination = []
+    end
+  end
+  combinations_collection.uniq
+end
 
