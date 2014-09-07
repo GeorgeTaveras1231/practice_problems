@@ -3,19 +3,29 @@ def palindrome? word
   word == word.reverse
 end
 
+def palindrome_permutations? word
+  permutations
+end
+
 def permutations string
   # iterative permutation function
   permutations_array = []
-  unused = string.chars
-  string.each_char.with_index do |char, index|
+  index = 0
+  while index < string.length
     all_chars = string.chars
-    all_chars.delete_at(index)
-    used = [char]
-    unused = all_chars
-    until unused.empty?
-      
+    current_char = [all_chars.delete_at(index)]
+    jindex = 0
+    permutation = current_char + all_chars
+    while jindex < all_chars.length
+      permutations_array.push(permutation.join)
+      permutation = current_char + rotate(all_chars)
+      jindex += 1
     end
+    index += 1
   end
+  permutations_array
 end
 
-permutations "test"
+def rotate array
+  array.unshift(array.pop)
+end

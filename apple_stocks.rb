@@ -6,6 +6,7 @@
 def best_stock(stock_prices)
   # should return lowest negative range
   max_profit = 0
+  
   stock_prices.each.with_index(1) do |first_price, i|
     stock_prices[i..stock_prices.count].each do |second_price|
       profit = second_price - first_price
