@@ -25,4 +25,3 @@ def combinations(amount, used, unused)
   end
   combinations_collection.uniq
 end
-
