@@ -4,7 +4,14 @@ def palindrome? word
 end
 
 def palindrome_permutations? word
-  permutations
+  index = 0
+  permutation_list = permutations(word)
+  while index < permutation_list.length
+    perm = permutation_list[index]
+    return true if palindrome?(perm)
+    index += 1 
+  end
+  false
 end
 
 def permutations string
