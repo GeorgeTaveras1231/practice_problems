@@ -30,4 +30,14 @@ class PalindromePermutationTest < Test::Unit::TestCase
     assert_equal false, palindrome_permutations?("civil")
     assert_equal false, palindrome_permutations?("livci")
   end
+  
+
+  def test_permutation_palindrome?
+    assert permutation_palindrome?('civic')
+    assert permutation_palindrome?('oobb')
+    assert permutation_palindrome?("ivicc")
+
+    assert_equal false, permutation_palindrome?("civil")
+    assert_equal false, permutation_palindrome?("livci")
+  end
 end
