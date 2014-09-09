@@ -9,7 +9,7 @@ def permutation_palindrome? word
   parity_map = Hash.new(false)
   while index < word.length
     char = word[index]
-    # if found an even number of times, it will be true otherwise, false
+    # if found an even number of times, it will be false otherwise, true
     parity_map[char] = !parity_map[char] 
     index += 1
   end
